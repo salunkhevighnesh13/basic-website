@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Basic html and css Website</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta charset="utf-8">
+        <meta name="keywords" content="html, css, javascript">
+        <meta name="author" content="vighnesh salunkhe">
+        <!-- font awesome icon link -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+                "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        a {
+            text-decoration: none;
+        }
+        body{
+            background:url("city.jpg") no-repeat center center fixed; 
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+        /* scrollbar styling  start*/
+        body::-webkit-scrollbar{
+            width:1em;
+            background-color:#161616;
+
+        }
+        body::-webkit-scrollbar-thumb {
+            border-radius: 25px;
+            height:10vh;
+            background:rgb(4, 102, 4);
+        }
+        /* scrollbar styling end */
+        .container{
+            width: 80%;
+            display: flex;
+            flex-direction: column;
+            margin:0px auto;
+            /* background-color: black; */
+            background:rgba(0,0,0,0.7);
+            /* padding:10px */
+        }
+        /* navbar start */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            padding: 18px 10px;
+            box-sizing: border-box;
+            /* position: relative; */
+            position:sticky;
+            top:0;
+            width: 100%;
+            background-color: black;
+            margin-bottom: 10px;
+        }
+        .navbar .logo {
+            display: flex;
+            width: 30%;
+            justify-content: flex-start;
+            align-content: center;
+        }
+        .navbar .logo p {
+            font-size: 25px;
+        }
+        .navbar .logo p b {
+            color: Red;
+        }
+
+        .navbar .nav-link {
+            width: 70%;
+            display: flex;
+            justify-content: space-evenly;
+        }
+        .navbar .nav-link li a {
+            color: white;
+            font-size: 18px;
+            padding: 5px 0px;
+        }
+        .navbar .nav-link li a:hover {
+            color: red;
+            /* border-top: 2px solid green; */
+            border-bottom: 2px solid green;
+        }
+        .navbar .nav-link li:hover:nth-child(even) a {
+            color: green;
+            /* border-top: 2px solid red; */
+            border-bottom: 2px solid red;
+        }
+
+        /* toogle icon  */
+        .toogle-icon {
+            margin-right: 25px;
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 18px;
+            cursor: pointer;
+            background: none;
+            outline: none;
+            border: none;
+        }
+        .toogle-icon span {
+            padding: 1px 17px;
+            border: 2px solid green;
+            display: block;
+            margin: 3px 0px;
+            border-radius: 3px;
+        }
+        .toogle-icon span:last-child{
+            padding:1px 10px;
+        }
+          /* toogle icon  */
+        /* navbar end */
+
+        /* cards */
+        /* use https://neumorphism.io website for creating 3D effect to cards */
+        .employee-info{
+            display: flex;
+            justify-content: space-evenly;
+            padding:30px 0px;
+            border-radius: 15px;
+        }
+        .employee-info:hover{
+            background:#1c1c1c;
+        }
+        .employee-info .box{
+            display: flex;
+            width:30%;
+            flex-direction: column;
+            justify-content:center;
+            align-items:center;
+            padding:40px 15px;
+            background-color:rgba(0, 0, 0,0.5);
+            border:1px solid lightgrey;
+            color:white;
+            box-sizing: border-box;
+            border-radius: 15px;
+        }
+        .employee-info .box:hover{
+            background: #1c1c1c;
+            box-shadow: inset 18px 18px 18px #161616, 
+                        inset -18px -18px 18px #222222;
+             border-radius: 15px;
+             border:none;
+        }
+        .employee-info:hover .box{
+            border:none;
+        }
+        .employee-info .box img{
+            width:70px;
+            height: 70px;
+            background:rgb(66, 66, 60);
+            border-radius: 50%;
+        }
+        .employee-info .box .name{
+            margin-top:13px;
+            color:Red;
+            font-weight: 450;
+            font-size: 15px;
+            word-wrap: break-word;
+            align-self: center;
+        }
+        .employee-info .box .brief-info{
+            margin-top:19px;
+            font-size: 13px;
+            font-weight: 300;
+        }
+        .employee-info .box .btn{
+            color:white;
+            background:black;
+            margin-top:19px;
+            outline: none;
+            width:120px;
+            height: 40px;
+            border:1px solid gray;
+            border-radius: 5px;
+            cursor: pointer;
+            box-sizing: border-box;
+        }
+        .employee-info .box .btn:hover{
+            border:none;
+            box-shadow: inset 3px 3px 6px 3px green,inset -3px -3px 6px 3px green;
+        }
+
+        /* cards end */
+
+        /* footer start */
+        footer{
+            display:flex;
+            flex-direction: column;
+            /* background:black; */
+            background:rgba(0,0,0,0.5);
+            color:white;
+            bottom:0;
+            width:100%;
+            justify-content: space-around;
+            padding: 45px 10px;
+            box-sizing: border-box;  
+        }
+        footer .footer-part1{
+            display: flex;
+            width:100%;
+            padding-bottom:30px;
+            border-bottom:2px solid white;
+        }
+        footer .footer-part1 .about{
+            width:40%;
+            display: flex;
+            flex-direction: column;
+            justify-content:flex-start;
+        }
+        footer .footer-part1 .about .logo{
+            font-size:25px;
+        }
+        footer .footer-part1 .about .logo b{
+            color:red;
+        }
+        footer .footer-part1 .about .info{
+            margin-top:30px;
+            font-size: 14px;
+            color:grey;
+            line-height: 20px;
+        }
+        footer .footer-part1 .useful_link{
+            width:30%;
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+        }
+        footer .footer-part1 .useful_link p{
+            font-size: 18px;
+        }
+        footer .footer-part1 .useful_link ul{
+            margin-top:30px;
+        }
+        footer .footer-part1 .useful_link ul li{
+            margin-top:20px
+        }
+        footer .footer-part1 .useful_link ul li:first-child{
+            margin-top:0px;
+        }
+        footer .footer-part1 .useful_link ul li a{
+            color:white;
+            font-size:14px;
+        }
+        footer .footer-part1 .useful_link ul li a:hover{
+            color:green
+        }
+        footer .footer-part1 .useful_link ul li:hover:nth-child(even) a{
+            color:red;
+        }
+
+
+        footer .footer-part1 .contact{
+            width:30%;
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+        }
+        footer .footer-part1 .contact p{
+            font-size: 18px;
+        }
+        footer .footer-part1 .contact ul{
+            margin-top:30px;
+        }
+        footer .footer-part1 .contact ul li{
+            margin-top:20px;
+            color:white;
+            font-size:14px;
+        }
+        footer .footer-part1 .contact ul li:first-child{
+            margin-top:0px;
+        }
+        footer .footer-part1 .contact ul li i{
+            margin-right: 8px;
+        }
+        footer .footer-part1 .contact ul li .fa-home{
+            color:gray
+        }
+        footer .footer-part1 .contact ul li .fa-envelope{
+            color:#dc4e41;
+        }
+        footer .footer-part1 .contact ul li .fa-phone{
+            color:red
+        }
+
+        footer .social-link{
+            display: flex;
+            margin-top:30px;
+            align-items: center;
+            justify-content: center;
+        }
+        footer .social-link li{
+            margin: 0px 10px;
+        }
+        footer .social-link li button{
+            height: 45px;
+            width: 45px;
+            border-radius:50%;
+            font-size: 17px;
+            outline:none;
+            border:none;
+        }
+        footer .social-link li .facebook_btn{
+            color:	#3b5998;
+        }
+        footer .social-link li .facebook_btn:hover{
+            color:white;
+            background-color:	#3b5998;
+        }
+
+        footer .social-link li .instagram_btn{
+            color: #dd2a7b;
+        }
+        footer .social-link li .instagram_btn:hover {
+            color:white;
+            background-color: #dd2a7b;
+        }
+
+        footer .social-link li .twitter_btn{
+            color:#55acee;
+        }
+        footer .social-link li .twitter_btn:hover{
+            color:white;
+            background-color:#55acee;
+        }
+
+        footer .social-link li .linkedin_btn{
+            color:#0077b5;
+        }
+        footer .social-link li .linkedin_btn:hover{
+            color:white;
+            background-color:#0077b5;
+        }
+        /* footer end */
+
+        /* media query for max width 1000 */
+        @media screen and (max-width: 1000px) {
+            .container{
+                width: 100%;
+            }
+            .toogle-icon {
+                display: block;
+            }
+            .navbar {
+                display: flex;
+                flex-direction: column;
+                padding: 18px 20px 0px 20px;
+            }
+            .navbar .logo {
+                align-items: flex-start;
+                justify-content: flex-start;
+                width: 100%;
+                margin-bottom: 10px;
+                box-sizing: border-box;
+                padding-bottom: 10px;
+                border-bottom: 1px solid gray;
+            }
+            .navbar .nav-link {
+                display: none;
+            }
+            .navbar .open_navlink {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                align-items: center;
+                width: 100%;
+                height: 50vh;
+                box-sizing: border-box;
+                transition: all 0.5s;
+            }
+            footer{
+                padding: 45px 20px;
+            }
+        }
+        @media screen and (max-width: 750px) {
+            .employee-info{
+                flex-direction: column;
+                justify-content:center;
+                align-items: center
+            }
+            .employee-info .box{
+                width: 50%;
+                margin-top: 10px;
+            }
+            .employee-info .box:last-child{
+                margin-bottom:10px;
+            }
+        }
+
+        /* media query for max width 550 */
+        @media screen and (max-width: 550px){
+            .navbar .logo {
+                padding-left: 20px;
+            }
+            .employee-info .box{
+                width: 60%;
+            }
+            footer .footer-part1{
+                flex-direction: column;
+                padding:0px 20px 35px 20px;
+                width:100%;
+            }
+            footer .footer-part1 .about{
+                width:100%;
+                padding-bottom: 9px;
+                border-bottom: 1px solid lightgrey;
+            }
+            footer .footer-part1 .about .info{
+                margin-top: 15px;
+            }
+            footer .footer-part1 .useful_link{
+                width:100%;
+                align-items: flex-start;
+                margin-top: 30px;
+                padding-bottom: 9px;
+                border-bottom: 1px solid lightgrey;
+            }
+            footer .footer-part1 .useful_link ul{
+                margin-top:8px;
+            }
+            footer .footer-part1 .useful_link ul li{
+                margin-top:10px
+            }
+
+            footer .footer-part1 .contact{
+                width:100%;
+                justify-content:flex-end;
+                align-items: flex-start;
+                margin-top: 30px;
+            }
+            footer .footer-part1 .contact ul{
+                margin-top:8px;
+            }
+            footer .footer-part1 .contact ul li{
+                margin-top:10px
+            }
+        }
+        @media screen and (max-width: 320px){
+            .employee-info .box{
+                width: 80%;
+            }
+        }
+        
+    </style>
+    <body>
+      <div class="container">
+            <!-- navbar -->
+        <div class="navbar">
+            <div class="logo">
+                <p>Nav<b>B</b>ar</p>
+            </div>
+            <ul class="nav-link">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <button class="toogle-icon">
+                <span></span>
+                <span></span>
+                <span class="lst_line"></span>
+            </button>
+        </div>
+         <!-- navbar end-->
+         <!-- <p style="color:white; padding:20px">Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque id nobis, itaque, illo omnis obcaecati officia accusamus amet nemo ducimus harum repudiandae impedit iusto hic ipsa debitis facilis ipsam. Facere sapiente inventore accusantium iste architecto culpa eum, vitae molestias sequi voluptatum totam fugiat nesciunt libero voluptate possimus recusandae reprehenderit? Neque eius perspiciatis voluptas dolore, recusandae a perferendis placeat. Dolores asperiores consequuntur, aliquid porro sed, distinctio illum quisquam expedita beatae odio quis explicabo commodi? Iste ullam quod voluptatibus iure dicta nesciunt obcaecati aut nulla exercitationem doloremque iusto ipsa sed dolor quae magni qui reprehenderit ex nam excepturi, tempore dolorem! Modi ad ducimus sed ipsum libero maiores inventore, neque veniam autem reprehenderit dignissimos, ipsa tempore fugit eligendi perferendis veritatis. Necessitatibus ratione voluptatem voluptatum cum a ea neque, nihil iure. Nisi saepe asperiores culpa totam nemo? Et quasi exercitationem cupiditate natus, eos neque provident repellat quo sint, laborum hic voluptatum animi temporibus ut officiis qui similique beatae obcaecati quae. Est sit commodi natus minima, ullam, non placeat necessitatibus dignissimos numquam quisquam rerum dolore eos, ex perferendis eius praesentium cupiditate consequuntur? Iste ratione voluptate soluta. Suscipit nostrum eligendi laboriosam consequuntur mollitia nulla quas possimus sequi nobis saepe rem, aut veritatis, autem minus provident ut inventore voluptas reprehenderit neque amet ab impedit repudiandae aliquam! Ad deleniti, inventore, omnis magni quidem consectetur quibusdam ipsa earum corporis temporibus rerum ea sunt recusandae soluta hic eligendi vel molestiae tempora accusamus? Ratione molestias aliquam voluptate alias assumenda consequatur porro voluptas fuga atque molestiae blanditiis dicta iusto, cum voluptates aspernatur, dolore harum dolor ipsa a. Aut quas laudantium, aliquid, iste quasi adipisci, obcaecati quam similique hic quibusdam placeat totam? Sed et dolorem fugiat quaerat quos? Deserunt explicabo corrupti minima pariatur earum quam velit, temporibus sequi sit eaque. Facere, eos optio assumenda consectetur architecto maiores exercitationem illo ipsa atque quam fugit?</p> -->
+        <!-- cards start here -->
+         <div class="employee-info">
+            <div class="box">
+                <img src="/vighnu.jpg">
+                <p class="name">Vighnesh Salunkhe</p>
+                <p class="brief-info">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae deleniti quam consequatur dolorum doloribus. Itaque.</p>
+                <button class="btn">Read More..</button>
+            </div>
+            <div class="box">
+                <img src="/vighnu.jpg">
+                <p class="name">Vighnesh Salunkhe</p>
+                <p class="brief-info">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae deleniti quam consequatur dolorum doloribus. Itaque.</p>
+                <button class="btn">Read More..</button>
+            </div>
+            <div class="box">
+                <img src="/vighnu.jpg">
+                <p class="name">Vighnesh Salunkhe</p>
+                <p class="brief-info"> dolor sit. ipsum dolor sit amet consectetur adipisicing elit. Molestiae deleniti quam consequatur dolorum doloribus. Itaque.</p>
+                <button class="btn">Read More..</button>
+            </div>
+        </div>
+        <!-- cards end here -->
+        
+         <!-- footer start -->
+        <footer>
+            <div class="footer-part1">
+                <div class="about">
+                        <p class="logo">Nav<b>B</b>ar</p>
+                    
+                    <p class="info">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                        Esse, fugit?, Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, est!
+                    </p>
+                </div>
+                <div class="useful_link">
+                    <p>Useful Links</p>
+                    <ul>
+                        <li><a href="#">Your Account</a></li>
+                        <li><a href=#">Help</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Product</a></li>
+                    </ul>
+                </div>
+                <div class="contact">
+                    <p>Contact</p>
+                    <ul>
+                        <li><i class="fa fa-home"></i>Navi Mumbai</li>
+                        <li><i class="fa fa-envelope"></i>abc@gmail.com</li>
+                        <li><i class="fa fa-phone"></i>+0123456789</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- social link button -->
+                <ul class="social-link">
+                    <li>
+                        <button class="facebook_btn" href="#"><i class="fa fa-facebook"></i></button>
+                    </li>
+                    <li>
+                        <button  class="instagram_btn" href="#"><i class="fa fa-instagram"></i></button>
+                    </li>
+                    <li>
+                        <button class="twitter_btn" href="#"><i class="fa fa-twitter"></i></button>
+                    </li>
+                    <li>
+                        <button class="linkedin_btn" href=""><i class="fa fa-linkedin"></i></button>
+                    </li>
+                </ul>
+                 <!-- social link button -->
+        </footer>
+        <!-- footer end -->
+      </div>
+    </body>
+    <script>
+        hamburger = document.querySelector(".toogle-icon");
+        nav_link = document.querySelector(".nav-link");
+        hamburger.addEventListener("click", () => {
+            nav_link.classList.toggle("open_navlink");
+        });
+    </script>
+</html>
